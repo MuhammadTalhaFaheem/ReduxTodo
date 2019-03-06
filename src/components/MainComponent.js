@@ -11,8 +11,6 @@ class MainComponent extends Component{
           <AddItemComponent />
           <FilterComponent />
           <ItemComponent />
-          
-          
         </div>
       </div>
     );

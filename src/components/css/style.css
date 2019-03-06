@@ -90,7 +90,7 @@ border: solid 1px #6C6777;
 	cursor:pointer;
 }
 
-.checkbox-container>input[type=checkbox]:checked + span{
+.checkbox-container>input[type=checkbox]:checked + label{
 	text-decoration-line: line-through;
 	/* border: 2px solid red; */
 	color: rgb(106, 95, 129);

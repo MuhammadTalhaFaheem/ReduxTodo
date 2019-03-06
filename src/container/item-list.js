@@ -7,8 +7,29 @@ import { SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED } from '../constants';
 
 class ItemList extends Component{
 
+  itemStatusCheck = (itemId,e) =>{
+    console.log("My Status")
+    if(e.target.checked === true){
+      /* console.log("States True", itemId ); */
+      this.props.items.map((item) => {
+        if(item.id === itemId){
+          item.status = true;
+          console.log("States True", item );
+        }
+      });
+      
+    }
+    else if(e.target.checked === false){
+      this.props.items.map((item) => {
+        if(item.id === itemId){
+          item.status = false;
+          console.log("States False", this.props.items);
+        }
+      });
+      
+    }
+  }
   createItemList(){
-    /* console.log("List :- ",this.props.items) */
     return this.props.items.map((item) => {
       let checkedStatus = item.status === true ? "checked" : "";
       return (
@@ -17,7 +38,7 @@ class ItemList extends Component{
             <div>
               <label className="checkbox-container">
                 <span>{item.name}</span>
-                <input type="checkbox"  defaultChecked={checkedStatus} /* onClick={} *//>
+                <input type="checkbox"  defaultChecked={checkedStatus} onClick={this.itemStatusCheck.bind(this,item.id)} /* onClick={} *//>
                 <span className="checkmark"></span>
               </label>
             </div>
